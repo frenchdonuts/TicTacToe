@@ -8,7 +8,7 @@ import Data.Ord (comparing)
 
 class Minimax a where
   isEndState :: a -> Bool
-  utilityFn :: (Num c) => a -> c
+  utilityFn :: (Num c) => a -> Bool -> c
   children :: a -> [a]
 
 mDecision :: Minimax a => a -> a
@@ -18,11 +18,11 @@ mDecision state =
 
 mMax :: Minimax a => a -> Int
 mMax state
-  | isEndState state = utilityFn state
+  | isEndState state = utilityFn state True
   | otherwise = maximum $ map mMin (children state)
 
 mMin :: Minimax a => a -> Int
 mMin state
-  | isEndState state = utilityFn state
+  | isEndState state = utilityFn state False
   | otherwise = minimum $ map mMax (children state)
 

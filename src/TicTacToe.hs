@@ -86,10 +86,12 @@ winConfigs = [[t1,t2,t3],[t4,t5,t6],[t7,t8,t9], -- Rows
 instance Minimax TicTacToe where
   isEndState = snd . gameOver
 
-  utilityFn state =
+  utilityFn state isMax =
     case (gameOver state) of
           (Nothing, _)   -> 0
-          (Just p, True) -> if p == O then 1 else -1
+          (Just p, True) | isMax && (curPlayer == p) -> 1
+                         | (not isMax) && (not $ curPlayer == p) -> 1
+                         | otherwise -> -1
     where curPlayer = turn state
 
   children state = catMaybes . filter isJust $ map (playTile state) [1..9]

@@ -34,6 +34,7 @@ playerOnTile i =
      7 -> t7
      8 -> t8
      9 -> t9
+     otherwise -> const Nothing
 
 
 data TicTacToe = TicTacToe {

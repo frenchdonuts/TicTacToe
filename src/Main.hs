@@ -11,9 +11,10 @@ main = do
   putStrLn "One Player(1) or two players(2)?"
   oneOrTwo <- getLine
   case (readMaybe oneOrTwo) of
-    Just 1    -> playGame initGame True False
+    Just 1    -> playGame initGame True randomBoolean
     Just 2    -> playGame initGame False False
     otherwise -> putStrLn "Invalid choice." >> main
+  where randomBoolean = False
 
 
 emptyBoard = Board {
