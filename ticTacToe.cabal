@@ -19,7 +19,10 @@ executable ticTacToe
   main-is:             Main.hs
   other-modules:       Models,
                        Minimax,
-                       TicTacToe
+                       AI,
+                       GameLogic,
+                       TicTacToe,
+                       InputOutput
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8
   hs-source-dirs:      src
