@@ -22,7 +22,7 @@ executable ticTacToe
                        AI,
                        GameLogic,
                        TicTacToe,
-                       InputOutput
+                       Presentation
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8
   hs-source-dirs:      src

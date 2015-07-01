@@ -16,12 +16,6 @@ data Board = Board {
   t9 :: Maybe Player
 } deriving (Eq)
 
-instance Show Board where
-  show b =
-    (show (t1 b)) ++ "  " ++ (show (t2 b)) ++ "  " ++ (show (t3 b)) ++ "\n" ++
-    (show (t4 b)) ++ "  " ++ (show (t5 b)) ++ "  " ++ (show (t6 b)) ++ "\n" ++
-    (show (t7 b)) ++ "  " ++ (show (t8 b)) ++ "  " ++ (show (t9 b)) ++ "\n"
-
 playerOnTile :: Int -> (Board -> Maybe Player)
 playerOnTile i =
   case i of
@@ -42,7 +36,6 @@ data TicTacToe = TicTacToe {
   board :: Board
 } deriving (Eq)
 
-instance Show TicTacToe where
-  show s =
-    "Turn: " ++ (show (turn s)) ++ "\n" ++
-    (show (board s))
+--
+
+
