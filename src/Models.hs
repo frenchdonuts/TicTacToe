@@ -1,7 +1,7 @@
 module Models where
 
 -- Models
-data Player = X | O deriving (Show, Eq)
+data Player = X | O deriving (Eq)
 
 
 data Board = Board {
