@@ -24,21 +24,6 @@ class TicTacToeInterface a where
   getUserInput :: a -> IO String
 
 
-emptyBoard = Board {
-  t1 = Nothing,
-  t2 = Nothing,
-  t3 = Nothing,
-  t4 = Nothing,
-  t5 = Nothing,
-  t6 = Nothing,
-  t7 = Nothing,
-  t8 = Nothing,
-  t9 = Nothing
-}
-initGame = TicTacToe {
-  turn = X,
-  board = emptyBoard
-}
 
 -- Engine
 ticTacToe :: (TicTacToeInterface a) => a -> IO ()
