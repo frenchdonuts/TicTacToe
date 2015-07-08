@@ -5,12 +5,16 @@ import Test.HUnit
 import Test.QuickCheck
 import Test.Utils
 
+import Models
 import GameLogic
 
 
-testIsBoardFull :: Assertion
-testIsBoardFull = undefined
+-- testIsBoardFull :: Assertion
+testIsBoardFullAssertion =
+  (isBoardFull $ emptyBoard) @=? False
 
 
 testCheckForWin :: Assertion
 testCheckForWin = undefined
+
+
