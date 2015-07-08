@@ -9,12 +9,11 @@ import Models
 import GameLogic
 
 
--- testIsBoardFull :: Assertion
 testIsBoardFullAssertion =
   (isBoardFull $ emptyBoard) @=? False
 
 
-testCheckForWin :: Assertion
-testCheckForWin = undefined
+testFindWinner :: Assertion
+testFindWinner = undefined
 
 

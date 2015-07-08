@@ -20,7 +20,7 @@ playTile game@(TicTacToe p b) i
 
 -- Terminal state checks
 gameOver :: TicTacToe -> (Maybe Player, Bool)
-gameOver (TicTacToe _ b) = f (checkForWin b) (isBoardFull b)
+gameOver (TicTacToe _ b) = f (findWinner b) (isBoardFull b)
   where f Nothing b = (Nothing, b)  -- No one won
         f xOrO _ = (xOrO, True)     -- Someone won
 
@@ -28,8 +28,8 @@ isBoardFull :: Board -> Bool
 isBoardFull b = isJust $ foldr (<*) (Just X) allTiles
   where allTiles = map (`getPlayerOnTile` b) [1..9]
 
-checkForWin :: Board -> Maybe Player
-checkForWin b = foldr stepFn Nothing ( (rows b) ++ (columns b) ++ (diagonals b) )
+findWinner :: Board -> Maybe Player
+findWinner b = foldr stepFn Nothing ( (rows b) ++ (columns b) ++ (diagonals b) )
   where stepFn [Just X, Just X, Just X] acc = Just X
         stepFn [Just O, Just O, Just O] acc = Just O
         stepFn _ acc = acc
