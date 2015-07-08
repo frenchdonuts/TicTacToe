@@ -20,7 +20,10 @@ tests =
 
 
 testModels :: TestTree
-testModels = testGroup "Models"
+testModels =
+  testGroup "Models" [testBoardOperations]
+
+testBoardOperations = testGroup "Board Operations"
   [
     testProperty "Out of bounds Board get" propOutOfBoundsGetIsNothing,
     testProperty "Out of bounds Board set" propOutOfBoundsSetIsNothing,
@@ -28,5 +31,12 @@ testModels = testGroup "Models"
     testProperty "Get/Set composition" propGetThenSetPlayerEqual
   ]
 
+
 testGameLogic :: TestTree
-testGameLogic = undefined
+testGameLogic = testGroup "Game Logic"
+  [
+    testCase     "Empty board is not full"    assertEmptyBoardIsNotFull,
+    testProperty "0 Nothings in a full board" propNoNothingsInFullBoard,
+    testCase     "X Wins state"               testFindWinner1,
+    testCase     "Tie state"                  testFindWinner2
+  ]
